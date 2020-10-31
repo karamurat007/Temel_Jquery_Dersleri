@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Denemeleri</title>
+    <script src="script\jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            //$("button").click(function(){
+            //    $("p").hide();
+            //})//İlk örnek çalıştırıldıktan sonra bu aşama kapatılmalı !!!
+            $("#bt2").click(function(){
+                $("#sp21").hide();
+                $("#sp22").hide();
+            })
+            $("#bt3").click(function(){
+                $(".ucornek").hide();
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>İlk Örnek Başlığı</h2>
+    <p>İlk Satır</p>
+    <p>ikinci Satır</p>
+    <button>Tüm Satırları Kapatır</button>
+    <h2>İkinci Örnek Başlığı</h2>
+    <p id="sp21">İkinci Örnek Satırı</p>
+    <p id="sp22">İkinci Örnek Satırı İki</p>
+    <button id="bt2">İkinci sadece ikinci satırdakileri kapatır.</button>
+    <h2>Üçüncü Örnek Başlığı</h2>
+    <p class="ucornek">İkinci Örnek Satırı</p>
+    <p class="ucornek">İkinci Örnek Satırı İki</p>
+    <button id="bt3">Ucornek klasına dahil olanları kapatır.</button>
+</body>
+</html>
