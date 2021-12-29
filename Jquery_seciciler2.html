@@ -9,7 +9,19 @@
     <script>
         $(document).ready(function(){
             $("#btntikla").click(function(){
-                $("*").hide();
+                //$("*").hide();                    //--> Tüm objeleri gizler.
+                //$(this).hide();                   //--> Mevcut objeyi yani buonu gizler
+                //$("p.iki").hide();                //--> p tag'in deki class değeri iki olan tüm satırları gizler.
+                //$("p:first").hide();              //--> p tag'inde yer alan ilk objeyi gizler
+                //$("ul li:first").hide();          //--> İlk li'yi gizler. Tüm ul tag'leri içindeki !!!
+                //$("ul li:first-child").hide();    //--> Tüm list elemanları içindeki ilk seçeneğin gizlenmesini sağlar.
+                //$("[href]").hide();               //--> Tüm href tanımına sahip objelerin gizlenmesini sağlar.
+                //$("a[target='_blank']").hide();   //--> Sadece target özelliği blank olan linkleri gizle
+                //$("a[target!='_blank']").hide();  //--> Sadece target özelliği blank OLMAYAN linkleri gizler
+                //$(":button").hide();              //--> type özelliği buton olan objeleride gizler.
+                //$("tr:even").hide();              //--> tr tag'indeki ilk kırılımları gizler
+                //$("tr:odd").hide();               //--> tr tag'indeki ikinci kırılımları gizler
+                $("tr:even").css("background-color","gray");    //--> even'ların arkı rengini değiştirir.
             })
         })
     </script>
@@ -17,7 +29,47 @@
 <body>
     <h2>Başlık olarak yazıldı.</h2>
     <p id="ilk">İlk Paragraf</p>
-    <p id="iki">İkinci Paragraf</p>
+    <p class="iki">İkinci Paragraf</p>
+    <p>
+        <ul>
+            <li>Kahve</li>
+            <li>Çay</li>
+            <li>Sahlep</li>
+        </ul>
+        <ul>
+            <li>Kola</li>
+            <li>Gazoz</li>
+            <li>Fanta</li>
+        </ul>
+    </p>
+    <p>
+        <table>
+            <!--İlk even özellikli tag-->
+            <tr>
+                <th>Şirket</th>
+                <th>Ülke</th>
+            </tr>
+            <!--İlk odd özellikli tag-->
+            <tr>
+                <td>AOS Yazılım</td>
+                <td>Türkiye</td>
+            </tr>
+            <!--İkinci even özellikli tag-->
+            <tr>
+                <td>AOS Eğitim</td>
+                <td>Türkiye</td>
+            </tr>
+            <!--İkinci odd özellikli tag-->
+            <tr>
+                <td>AOS Danışmanlık</td>
+                <td>Türkiye</td>
+            </tr>
+        </table>
+    </p>
+
+    <a href="#" target="_blank">Link 1</a></br>
+    <a href="#">Link 2</a></br>
     <button id="btntikla">Gizlemek için tıkla</button>
+    <input type="button" id="btntikla2" value="Tıkla ve Gizle"></input>
 </body>
 </html>
