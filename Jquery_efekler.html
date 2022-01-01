@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Efekler</title>
+    <script src="script/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+           $("#btnGizle").click(function(){
+            $("p").hide(1000);
+           });
+
+           $("#btnGoster").click(function(){
+            $("p").show(2000);
+           });
+
+           $("#btnAll").click(function(){
+            $("p").toggle(1000);    //--> Hem gösterir hemde gizler.
+           });
+
+           $("#btnFadeIn").click(function(){
+               $("#dv1").fadeIn();
+               $("#dv2").fadeIn("slow");
+               $("#dv3").fadeIn(2000);
+           });
+
+           $("#btnFadeOut").click(function(){
+               $("#dv1").fadeOut();
+               $("#dv2").fadeOut("slow");
+               $("#dv3").fadeOut(2000);
+           });
+
+           $("#btnFadeToggle").click(function(){
+               $("#dv1").fadeToggle();
+               $("#dv2").fadeToggle("slow");
+               $("#dv3").fadeToggle(2000);
+           });
+
+           $("#btnFadeTo").click(function(){
+               $("#dvf1").fadeTo("slow", 0.5);
+               $("#dvf2").fadeTo("slow", 0.5);
+               $("#dvf3").fadeTo("slow", 0.1);
+           });
+
+           $("#slUp").hide();   //--> İlk etapta panel kapat düğmesi gizleniyor.
+           $("#slDown").click(function(){
+            $("#slUp").show();
+            $("#slDown").hide();
+            $("#slDiv").slideDown("slow");
+           });
+           
+           $("#slUp").click(function(){
+            $("#slDown").show();
+            $("#slUp").hide();
+            $("#slDiv").slideUp("slow");       
+           });
+
+           //Slide Toggle örneği çin bir değişken tanımlanıp buton başlığı kontrollü yapılmıştır.
+           var c=0;
+           $("#slTgl").click(function(){
+            if(c==0){
+                c++;
+                $("#slTgl").text("Kapat");
+                $("#slDiv1").slideToggle("slow");
+            }else if(c==1){
+                c=0;
+                $("#slTgl").text("Aç");
+                $("#slDiv1").slideToggle("slow");
+            }
+           });
+
+           $("#btnStr").click(function(){
+            $("#anmDv").animate({
+                left:'350px',
+                width:'150px',
+                height:'150px'
+            },4000);
+            $("#anmDv").animate({
+                fontSize:'30px'
+            },2000);
+           });
+
+           $("#btnStp").click(function(){
+            $("#anmDv").stop();
+           });
+
+           $("#btnStpAll").click(function(){
+            $("#anmDv").stop(true);
+           });
+
+           $("#btnStpEnd").click(function(){
+            $("#anmDv").stop(true,true);
+           });
+
+        });
+    </script>
+</head>
+<body>
+    <p>Gösterip gizlenecek olan metin :)</p>
+    <button id="btnGizle">Gizle</button>&nbsp;
+    <button id="btnGoster">Göster</button>
+    <button id="btnAll">Göster veya Gizle</button>
+    <br/>
+    <div id="dv1" style="display: none; width: 80px; height: 100px; background-color: brown;"></div>&nbsp;
+    <div id="dv2" style="display: none; width: 80px; height: 100px; background-color: cadetblue;"></div>&nbsp;
+    <div id="dv3" style="display: none; width: 80px; height: 100px; background-color: coral;"></div>
+    <button id="btnFadeIn">Fade-In Yap</button><br/>
+    <button id="btnFadeOut">Fade-Out Yap</button>
+    <button id="btnFadeToggle">Fade-Toggle Yap</button>
+    <br/>
+    <div id="dvf1" style="width: 80px; height: 100px; opacity: 0.1; background-color:cyan;"></div>&nbsp;
+    <div id="dvf2" style="width: 80px; height: 100px; opacity: 0.9; background-color:darkgreen;"></div>&nbsp;
+    <div id="dvf3" style="width: 80px; height: 100px; opacity: 0.5; background-color:darkkhaki;"></div>
+    <button id="btnFadeTo">Fada-TO</button>
+    <br/>
+    <button id="slDown">Paneli Aç</button>
+    <button id="slUp">Paneli Kapat</button>
+    <div id="slDiv" style="display: none; width: 250px; height: 250px; background-color: darkkhaki;">Merhabalar Panel Görünüyor Olmalı  Şimdi</div>
+    <br/>
+    <p>Slide Toggle Örneği</p>
+    <button id="slTgl">Aç</button>
+    <br/>
+    <div id="slDiv1" style="display: none; width: 250px; height: 250px; background-color: darkkhaki;">Merhabalar Panel Görünüyor Olmalı  Şimdi</div>
+    <br/>
+    <p>Animasyon ve Stop Örneği</p>
+    <button id="btnStr">Başlat</button>&nbsp;
+    <button id="btnStp">Durdur</button>&nbsp;
+    <button id="btnStpAll">Hepsini Durdur</button>&nbsp;
+    <button id="btnStpEnd">Durdur ve Bitir</button>
+    <div id="anmDv" style="background-color: darkorange; width: 100px; height: 100px; position: absolute;">Merhaba Animasyonlu Div</div>
+    
+</body>
+</html>

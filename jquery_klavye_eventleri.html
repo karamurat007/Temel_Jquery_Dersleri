@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Klavye Eventleri</title>
+    <script src="script/jquery-3.5.1.js"></script>
+    <script>
+        var kp = 0;
+        var kd = 0;
+        $(function(){
+            $("#ad").keypress(function(){
+                $("#spn1").text(kp+=1);
+            });
+            $("#ad").keydown(function(){
+                $("#spn2").text(kd+=1);
+            });
+            /*$("#soyad").keydown(function(){
+                $("#soyad").css("background-color","yellow");
+            });*/
+            $("#soyad").keyup(function(){
+                $("#soyad").css("background-color","green");
+            });
+            $("#soyad").keydown(function(event){
+                $("#spn3").text(event.which);
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Adınızı Giriniz : <input id="ad" type="text"/>
+    <br>
+    Basılan Tuş Sayısı : <span id="spn1"></span>
+    <br>
+    Basılan Tuş ve Kontrol Tuşları Sayısı : <span id="spn2"></span>
+    </p>
+    <p>Soyadınızı Giriniz : <input id="soyad" type="text"/>
+    <br>
+    Hangi Tuşa Basıldı : <span id="spn3"></span>
+    </p>
+    
+</body>
+</html>

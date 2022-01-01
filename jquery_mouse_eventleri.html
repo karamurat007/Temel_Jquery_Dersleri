@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Mouse Eventleri</title>
+    <script src="script/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            width: 220px;
+            height: 170px;
+            margin: 10px 50px 10px 10px;
+            background: yellow;
+            border: 2px groove;
+            float: right;
+        }
+        span {
+            display: block;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#ilk").click(function(){
+                $(this).css("background-color","gray");
+                alert("İlk paragraf click eventi ile tetiklendi.");
+            })
+            $("#ikinci").dblclick(function(){
+                $(this).css("background-color","yellow");
+                alert("İkinci paragraf doubleclick eventi ile tetiklendi.");
+            })
+            $("#dv1").mouseup(function(){
+                $(this).after("<p style='color:green'>Mouse Up yapıldı.</p>");
+            })
+            $("#dv1").mousedown(function(){
+                $(this).after("<p style='color:red'>Mouse Down yapıldı.</p>");
+            })
+            $("#ucuncu").hover(function(){  //--> İlk fonksiyon tanımı üzerine gelindiğindeki gibi davranıyor.
+                $(this).css("background-color","blue");
+            },
+            function(){ //--> İkinci fonksiyon tanımı üzerinden gidildiğindeki gibi davranıyor.
+                $(this).css("background-color","yellow");
+            })
+            $("#dv1").mousemove(function(event){
+                var konum = "X : " + event.pageX + ", Y : " + event.pageY;
+                $("#spn").text(konum);
+            }) 
+        })
+    </script>
+</head>
+<body>
+    <p id="ilk">İlk paragraf olarak yazıldı.</p>
+    <p id="ikinci">İkinci paragraf olarak yazıldı.</p>
+    <div id="dv1">Div içeriği</div>
+    <p id="ucuncu">Üçüncü paragraf olara yazıldı.</p>
+    <span id="spn">0</span>
+</body>
+</html>
